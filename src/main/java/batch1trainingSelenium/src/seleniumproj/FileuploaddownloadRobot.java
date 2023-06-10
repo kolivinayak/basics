@@ -33,7 +33,7 @@ public class FileuploaddownloadRobot {
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		clipboard.setContents(str, null);
 
-		Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		
 		Robot robot = new Robot();
 		
@@ -50,7 +50,7 @@ public class FileuploaddownloadRobot {
 		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("uploadfiles")))).click();
 		
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("uploadfiles")));
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("uploadfiles")));
 		driver.findElement(By.id("uploadfiles")).click();
 		
 		//driver.findElement(By.id("uploadfiles")).click();
@@ -59,7 +59,7 @@ public class FileuploaddownloadRobot {
 		
 		WebElement download = driver.findElement(By.id("download"));
 				
-		wait.until(ExpectedConditions.visibilityOf(download)).click();
+//		wait.until(ExpectedConditions.visibilityOf(download)).click();
 		
 		//download.click();
 		

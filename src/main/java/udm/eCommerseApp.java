@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -13,28 +14,24 @@ import java.util.Arrays;
 import java.util.List;
 
 public class eCommerseApp {
+    public static WebDriver driver;
     public static void main(String[] args) throws InterruptedException {
-
+        System.out.println(System.getProperty("user.dir"));
+        String path = System.getProperty("user.dir") + "/src/main/resources/"+"chromedriver.exe";
+        System.out.println("path :"+ path);
+        System.setProperty("webdriver.chrome.driver", path);
 //        System.setProperty("webdriver.gecko.driver", "C:\\vinayak\\code\\basics-master\\basics-master\\src\\main\\resources\\geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\vinayak\\code\\basics-master\\basics-master\\src\\main\\resources\\chromedriver110.exe");
-
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setAcceptInsecureCerts(true);
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox"); // Bypass OS security model
-        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-
-        options.addArguments("--remote-debugging-port=52015");
-
-        options.addArguments("start-maximized"); // open Browser in maximized mode
-        options.addArguments("disable-infobars"); // disabling infobars
-        options.addArguments("--disable-extensions"); // disabling extensions
-        options.addArguments("--disable-gpu"); // applicable to windows os only
-
-
-        WebDriver driver = new ChromeDriver(options);
+        options.merge(desiredCapabilities);
+        driver = new ChromeDriver(options);
 //        WebDriver driver = new FirefoxDriver();
 
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().window().maximize();
         driver.get("https://rahulshettyacademy.com/seleniumPractise/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        
 
         String[] itemNeeded = {"Brocolli","Cucumber","Cauliflower","Tomato","Carrot","Pumpkin"};
 

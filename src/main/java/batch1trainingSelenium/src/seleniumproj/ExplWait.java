@@ -18,7 +18,7 @@ public class ExplWait {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\vinay\\eclipse-workspace\\Browser driver exe\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		//driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
 
 		driver.get("https://swapnilkoshti.000webhostapp.com/newexpwait.html");
 	
@@ -26,12 +26,12 @@ public class ExplWait {
 		WebElement elm = driver.findElement(By.id("btn"));
 		
 //		Wait<WebDriver> wt = new WebDriverWait(driver, 30);
-		Wait<WebDriver> wt = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wt.until(ExpectedConditions.visibilityOf(elm));
+//		Wait<WebDriver> wt = new WebDriverWait(driver, Duration.ofSeconds(30));
+//		wt.until(ExpectedConditions.visibilityOf(elm));
 
 		elm.click();
 		
-		wt.until(ExpectedConditions.alertIsPresent());
+//		wt.until(ExpectedConditions.alertIsPresent());
 		
 		/******** Try this method on your own ***********/
 		//wt.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));

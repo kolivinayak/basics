@@ -11,8 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ChromeBrowserTest {
+    public static WebDriver driver;
     public static void main(String[] args) throws InterruptedException {
-
+        
         System.setProperty("webdriver.chrome.driver", "C:\\vinayak\\code\\basics-master\\basics-master\\src\\main\\resources\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox"); // Bypass OS security model
@@ -24,10 +25,10 @@ public class ChromeBrowserTest {
         options.addArguments("--disable-gpu"); // applicable to windows os only
 
 
-        WebDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         String[] itemNeeded = {"Brocolli","Cucumber","Cauliflower","Tomato","Carrot","Pumpkin"};
 
