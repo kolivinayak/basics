@@ -26,7 +26,13 @@ public class scrollWindowAndComponent {
 
         Thread.sleep(3000);
         js.executeScript("document.querySelector(\".tableFixHead\").scrollTop=5000");
-        
+        Thread.sleep(3000);
+        List<WebElement> amt = driver.findElements(By.cssSelector(".tableFixHead td:nth-child(4)"));
+        int total=0;
+        for (int i=0; i < amt.size();i++){
+            total = total + Integer.parseInt(amt.get(i).getText());
+        }
+        System.out.println(total);
         Thread.sleep(5000);
         driver.close();
     }
